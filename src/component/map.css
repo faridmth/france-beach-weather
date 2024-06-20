@@ -1,0 +1,7 @@
+.leaflet-container {
+    height: 100%;
+    background: rgb(8,61,123);
+    background: linear-gradient(0deg, rgba(8,61,123,1) 11%, rgba(47,111,164,1) 100%);    }
+.leaflet-bottom {
+    display: none;
+}
