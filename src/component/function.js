@@ -20,3 +20,9 @@ export function formatDateToFrench(dateString) {
     // Format the date as "DD MMMM YYYY"
     return `${day} ${monthName} ${year}`;
 }
+export function daysUntilWeekend() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday
+    const daysUntilSaturday = (6 - dayOfWeek) % 7; // days until next Saturday
+    return daysUntilSaturday;
+  }

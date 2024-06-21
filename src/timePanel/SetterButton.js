@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SetterButton = ({text,value,handler}) => {
+const SetterButton = ({text,value,handler,datesOptions}) => {
     const clickHandler =  ()=>{
-        handler(value)
+        handler(datesOptions[value])
     }
   return (
     <button onClick={clickHandler} className='time-setter-btn'>{text}</button>

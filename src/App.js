@@ -9,20 +9,22 @@ function App() {
   const [uvData,setUvData]=useState(null)
   // choices 
   const [dtType,setDtType]=useState(0)
+  const [time,setTime]=useState(null)
   useEffect(()=>{
     async function getData(){
       let data1 = await fetchData('https://www.meteocity.com/map/data/8?version=4&state=now')
       let data2 = await fetchData('https://fr-plages-uvi-api.onrender.com/fr-plages-uvi')
       setData(data1.data.map.days)
-      setUvData(data2.default)
+      setUvData(data2)
     }
     getData()
   },[])
- 
+
+
   return (
     <div className="app-container">
-      {data && uvData &&<Time data={data} uvData={uvData} dtType={dtType}/>}
-      <Map/>
+      {data && uvData &&<Time data={data} uvData={uvData} dtType={dtType} setTime={setTime}/>}
+      {data&&time&&<Map data={data[time.date][time.time]} dtType={dtType} uvData={uvData[time.date]}/>}
       <DataType setDtType={setDtType}/>
     </div>
   );
