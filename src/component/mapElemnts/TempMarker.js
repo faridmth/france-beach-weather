@@ -25,8 +25,8 @@ const Fmarker = ({coords,tooltipInf,popupInf,imgUrl}) => {
         },
     }}
 >
-    <Tooltip offset={[0,-23]} direction='top' permanent={true} className='tooltip' opacity={1}>{tooltipInf}</Tooltip>
-    <Popup autoPan={false}>{popupInf}</Popup>
+    <Tooltip className="tooltip" offset={[0,-17]} direction='top' permanent={true} opacity={1}>{tooltipInf}</Tooltip>
+    <Popup autoPan={false} offset={[0,30]}>{popupInf}</Popup>
 </Marker>
   )
 }

@@ -21,11 +21,12 @@ function App() {
   },[])
 
 
+
   return (
     <div className="app-container">
       {data && uvData &&<Time data={data} uvData={uvData} dtType={dtType} setTime={setTime}/>}
       {data&&time&&<Map data={data[time.date][time.time]} dtType={dtType} uvData={uvData[time.date]}/>}
-      <DataType setDtType={setDtType}/>
+      <DataType setDtType={setDtType} dtType={dtType}/>
     </div>
   );
 }

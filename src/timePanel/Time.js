@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SetterButton from './SetterButton'
 import Select from 'react-select'
 import { formatDateToFrench,daysUntilWeekend } from '../component/function'
-
+import { customStyles } from './selectStyles'
 const timeOptions = [
   { value: 'morning', label: 'Matin' },
   { value: 'afternoon', label: 'Après-midi' },
@@ -43,12 +43,14 @@ const Time = ({dtType,uvData,data,setTime}) => {
     setDateSelectedOption(dateOp);
     
   };
+  // active stter button 
+  const [activeBtn,setActiveButton]=useState(0)
   return (
     <div className='time-conatiner'>
       <div className='time-setters-cont'>
-        <SetterButton text="Aujourd'hui" handler={setDateSelectedOption} value={0} datesOptions={datesOptions}/>
-        <SetterButton text="Demain" handler={setDateSelectedOption} value={1} datesOptions={datesOptions}/>
-        <SetterButton text="Weekend" handler={setDateSelectedOption} value={daysUntilWeekend()} datesOptions={datesOptions}/>
+        <SetterButton text="Aujourd'hui" handler={setDateSelectedOption} value={0} datesOptions={datesOptions} activeBtn={activeBtn} setActiveButton={setActiveButton} bkey={0}/>
+        <SetterButton text="Demain" handler={setDateSelectedOption} value={1} datesOptions={datesOptions} activeBtn={activeBtn} setActiveButton={setActiveButton} bkey={1}/>
+        <SetterButton text="Weekend" handler={setDateSelectedOption} value={daysUntilWeekend()} datesOptions={datesOptions} activeBtn={activeBtn} setActiveButton={setActiveButton} bkey={2}/>
       </div>
       <div className='time-selcets-container'>
       <Select 
@@ -56,6 +58,7 @@ const Time = ({dtType,uvData,data,setTime}) => {
         className='select'
         value={dateSelectedOption}
         onChange={handleDateChange}
+        styles={customStyles}
         />
       <Select
         options={timeOptions}
@@ -63,6 +66,7 @@ const Time = ({dtType,uvData,data,setTime}) => {
         isDisabled={dtType<3?false:true}
         value={timeSelectedOption}
         onChange={handleTimeChange}
+        styles={customStyles}
       />
       </div>
     </div>

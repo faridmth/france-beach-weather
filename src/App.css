@@ -1,7 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .app-container{
-    max-width:590px;
-    height: 650px;
-    border: 1px solid black;
+    max-width:600px;
+    height: 710px;
     position: relative;
 }
 .time-conatiner{
@@ -13,23 +16,101 @@
 
 }
 .time-setters-cont{
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     display: flex;
+    gap: 1px
 }
-.time-setter-btn{
+.active-time-setter-btn,.time-setter-btn,.datatype-setter-btn,.active-datatype-setter-btn{
     flex: 1;
     border-radius: 0;
     border:none;
-    padding: 5px;
-    margin: 0px 1px;
+    padding: 8px;
     cursor: pointer;
+    background-color: #125fa4;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+.time-setter-btn:hover{
+    background-color: rgb(17, 87, 148);
+}
+.active-time-setter-btn{
+    background-color: rgb(13, 79, 137);
+
 }
 .time-selcets-container{
     display: flex;
+    gap: 1px;
+    margin-top: 1px;
 }
 .select{
     flex: 1;
 }
+/*Map Elemments styling*/
+
+.leaflet-tooltip{
+    background-color: rgb(255, 255, 255) !important;
+    z-index: 999999999999999999 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 2px 5px !important;
+    font-size: 10px;
+    font-weight: bold;
+}
+.leaflet-tooltip-top:before, 
+.leaflet-tooltip-bottom:before, 
+.leaflet-tooltip-left:before, 
+.leaflet-tooltip-right:before {
+    border: none !important;
+}
+.leaflet-popup-content-wrapper{
+    height: 20px;
+    padding: 1px !important;
+    border-radius: 3px !important;
+    background-color: rgb(37, 37, 37) !important;
+    border: 1px solid white;
+
+}
+.leaflet-popup-content{
+    margin: 0 !important;
+    text-align: center !important;
+    color: white;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+.leaflet-container a.leaflet-popup-close-button{
+    display: none;
+}
+.leaflet-popup-tip{
+    background-color: rgb(37, 37, 37) !important;
+    border: 1px solid white;
+    height: 8px !important;
+    z-index: -888;
+}
+
+.leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+
+  }
+  /*Sea temp circle*/
+  #uv-square,#circle-sea-temp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight:bold;
+    background-color: #567eaf;
+    color: white; 
+    border-radius: 50%;
+  }
+
+  /*UV Styles*/
+  #uv-square{
+    border-radius: 0;
+    padding: 2px 0;
+  }
+
+/*data Type panel styles */
 .data-type-container{
     position: absolute;
     bottom: 0;
@@ -40,4 +121,11 @@
 }
 .data-type-container{
     display: flex;
+    gap: 1px;
+}
+.datatype-setter-btn{
+    background-color: #439be2;
+}
+.datatype-setter-btn:hover{
+    background-color: #358dd5;
 }
