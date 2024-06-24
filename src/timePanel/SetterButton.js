@@ -2,7 +2,11 @@ import React from 'react'
 
 const SetterButton = ({text,value,handler,datesOptions,activeBtn,setActiveButton,bkey}) => {
     const clickHandler =  ()=>{
-        handler(datesOptions[value])
+        if(datesOptions.length>=value){
+          handler(datesOptions[value])
+        }else{
+          handler(datesOptions[0])
+        }
         setActiveButton(bkey)
         console.log(bkey)
     }

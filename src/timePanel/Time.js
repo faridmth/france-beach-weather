@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import SetterButton from './SetterButton'
 import Select from 'react-select'
-import { formatDateToFrench,daysUntilWeekend } from '../component/function'
+import {daysUntilWeekend } from '../component/function'
 import { customStyles } from './selectStyles'
+import { generateDateArray } from '../component/function'
 const timeOptions = [
   { value: 'morning', label: 'Matin' },
   { value: 'afternoon', label: 'Après-midi' },
@@ -10,23 +11,27 @@ const timeOptions = [
   { value: 'night', label: 'Nuit' }
 ]
 
-const Time = ({dtType,uvData,data,setTime}) => {
-  const[dt,setDt]=useState(data)
-  const[datesOptions,setDatesOptions]=useState([])
+const Time = ({dtType,setTime}) => {
+
+  const[datesOptions,setDatesOptions]=useState(generateDateArray(15))
   // selected options
   const [timeSelectedOption,setTimeSelectedOption]=useState(timeOptions[0])
   const [dateSelectedOption,setDateSelectedOption]=useState(datesOptions[0])
-    useEffect(()=>{
-    setDt(dtType<3?data:uvData)
-  },[dtType])
+  // active stter button 
+  const [activeBtn,setActiveButton]=useState(0)
+
   useEffect(()=>{
-    let dates = Object.keys(dt)
-    let dataOptions=[]
-    dates.map((elm)=>{
-      dataOptions.push({value :elm,label:formatDateToFrench(elm) }) 
-    })
-    setDatesOptions(dataOptions)
-  },[dt])
+    if(dtType==0){
+      setDatesOptions(generateDateArray(15))
+    }else if(dtType==1){
+      setDatesOptions(generateDateArray(3))
+    }else if(dtType==2){
+      setDatesOptions(generateDateArray(15))
+    }else if(dtType==3){
+      setDatesOptions(generateDateArray(8))
+    }
+    setActiveButton(0)
+  },[dtType])
   useEffect(()=>{
     setDateSelectedOption(datesOptions[0])
   },[datesOptions])
@@ -43,8 +48,6 @@ const Time = ({dtType,uvData,data,setTime}) => {
     setDateSelectedOption(dateOp);
     
   };
-  // active stter button 
-  const [activeBtn,setActiveButton]=useState(0)
   return (
     <div className='time-conatiner'>
       <div className='time-setters-cont'>
