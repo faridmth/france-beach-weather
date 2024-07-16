@@ -1,0 +1,7 @@
+.main-loading{
+    width: 98vw;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

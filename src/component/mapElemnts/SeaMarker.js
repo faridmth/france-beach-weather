@@ -4,7 +4,7 @@ import {divIcon} from 'leaflet'
 import styles from './sea.css'
 
 const SeaMarker = ({coords,tooltipInf,popupInf}) => {
-    let circleRadius = 14
+    let circleRadius = 11
     let circle = new divIcon({
         className: 'leaflet-div-icon',
         html: `<div id="circle-sea-temp" style="width:${2 * circleRadius}px;height: ${2 * circleRadius}px; ">${tooltipInf}</div>`,

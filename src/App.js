@@ -1,33 +1,60 @@
 import './App.css';
-import Map from './component/Map';
+import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import Time from './timePanel/Time';
 import DataType from './component/DataType';
-import { fetchData } from './component/function';
-import { useEffect, useState } from 'react';
-import { generateDateArray } from './component/function';
+import { fetchData, generateDateArray } from './component/function';
+
+const Map = lazy(() => import('./component/Map'));
+
 function App() {
-  const [data,setData]=useState(null)
-  const [uvData,setUvData]=useState(null)
-  // choices 
-  const [dtType,setDtType]=useState(0)
-  const [time,setTime]=useState(generateDateArray(1)[0])
-  useEffect(()=>{
-    async function getData(){
-      let data1 = await fetchData('https://www.meteocity.com/map/data/8?version=4&state=now')
-      setData(data1.data.map.days)
-      let data2 = await fetchData('https://fr-plages-uvi-api.onrender.com/fr-plages-uvi')
-      setUvData(data2)
+  const [data, setData] = useState(null);
+  const [uvData, setUvData] = useState(null);
+  // choices
+  const [dtType, setDtType] = useState(0);
+  const [time, setTime] = useState(generateDateArray(0)[0]);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const [data1, data2] = await Promise.all([
+          fetchData('https://www.meteocity.com/map/data/8?version=4&state=now'),
+          fetchData('https://fr-plages-uvi-api.onrender.com/fr-plages-uvi')
+        ]);
+
+        setData(data1.data.map.days);
+        setUvData(data2);
+        console.log('finish');
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
-    getData()
-  },[])
 
+    getData();
+  }, []);
 
+  const memoizedTime = useMemo(() => generateDateArray(0)[0], []);
 
   return (
     <div className="app-container">
-      <Time data={data} uvData={uvData} dtType={dtType} setTime={setTime}/>
-      <Map data={data} dtType={dtType} uvData={uvData} time={time}/>
-      <DataType setDtType={setDtType} dtType={dtType}/>
+      <Time data={data} uvData={uvData} dtType={dtType} setTime={setTime} />
+      {uvData && data ? (
+        <Suspense fallback={
+          <div className='loading'>
+            <div className='spinner'>
+              {/* Add spinner or loading animation here */}
+            </div>
+          </div>
+        }>
+          <Map data={data} dtType={dtType} uvData={uvData} time={time} />
+        </Suspense>
+      ) : (
+        <div className='loading'>
+          <div className='spinner'>
+            {/* Add spinner or loading animation here */}
+          </div>
+        </div>
+      )}
+      <DataType setDtType={setDtType} dtType={dtType} />
     </div>
   );
 }

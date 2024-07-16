@@ -22,12 +22,15 @@ const Time = ({dtType,setTime}) => {
 
   useEffect(()=>{
     if(dtType==0){
+      setTimeSelectedOption(timeOptions[0])
       setDatesOptions(generateDateArray(15))
     }else if(dtType==1){
       setDatesOptions(generateDateArray(3))
     }else if(dtType==2){
       setDatesOptions(generateDateArray(15))
     }else if(dtType==3){
+      setTimeSelectedOption(timeOptions[1])
+
       setDatesOptions(generateDateArray(8))
     }
     setActiveButton(0)

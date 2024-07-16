@@ -4,7 +4,7 @@ import { divIcon } from 'leaflet';
 import { getUvColor } from '../function';
 
 const UvMarker = ({ coords, tooltipInf, popupInf }) => {
-  let circleRadius = 14;
+  let circleRadius = 10;
 
 
   const circle = new divIcon({

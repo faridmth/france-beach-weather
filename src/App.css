@@ -7,6 +7,7 @@
     height: 710px;
     position: relative;
 }
+
 .time-conatiner{
     position: absolute;
     z-index: 8888;
@@ -128,4 +129,35 @@
 }
 .datatype-setter-btn:hover{
     background-color: #358dd5;
+}
+.loading{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spinner{
+    width: 45px;
+    height: 45px;
+    background-color: #358dd5;
+    animation: spin infinite 2s linear;
+}
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+/* media queriers*/
+@media only screen and (max-width: 600px) {
+    .app-container{
+        max-width:600px;
+        height: 590px;
+    }
 }

@@ -44,9 +44,13 @@ const Map = ({data,dtType,uvData,time}) => {
         if(map){
           map.setZoom(5.5)
         }
-      }else if(width<500){        
+      }else if(width<500 && width>=380){        
         if(map){
-        map.setZoom(5)
+        map.setZoom(4.9)
+        }
+      }else if(width<380){        
+        if(map){
+        map.setZoom(4.8)
         }
       }else{
         if(map){
@@ -57,10 +61,13 @@ const Map = ({data,dtType,uvData,time}) => {
     },[width,map])
   return (
       <MapContainer 
+        dragging={false}
         center={[47.3, 2.4]}
         zoom={5.7}
         scrollWheelZoom={false} 
-        zoomControl={false} zoomSnap={0.25}
+        zoomControl={false}
+        zoomSnap={0.25}
+        doubleClickZoom={false}
         ref={(mapInstance) => {
           if (mapInstance) {
             mapRef.current = mapInstance;

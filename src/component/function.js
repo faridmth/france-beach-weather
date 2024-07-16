@@ -39,8 +39,6 @@ export function daysUntilWeekend() {
 // Example usage
 const days = 5;
 const dateArray = generateDateArray(days);
-console.log(dateArray);
-
   // uv index color 
   const UV_INDEX_COLORS = {
     // Define colors based on UV index ranges
