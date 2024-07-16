@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Project description
+𝐁𝐞𝐚𝐜𝐡 𝐖𝐞𝐚𝐭𝐡𝐞𝐫 𝐅𝐫𝐚𝐧𝐜𝐞 is a user-friendly React app that shows real-time weather updates for beaches in France. The app uses a map with icons to help you see the current beach conditions at a glance.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 𝗞𝗲𝘆 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀:<br>
+-𝐈𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐢𝐯𝐞 𝐌𝐚𝐩: Easily find your favorite beaches in France.
+-𝐖𝐚𝐭𝐞𝐫 𝐓𝐞𝐦𝐩𝐞𝐫𝐚𝐭𝐮𝐫𝐞: Check how warm the water is for swimming.
+-𝐖𝐢𝐧𝐝 𝐈𝐧𝐟𝐨: Get details on wind speed and direction.
+-𝐔𝐕 𝐈𝐧𝐝𝐞𝐱: Stay safe with accurate UV index readings.
+-𝐇𝐞𝐥𝐩𝐟𝐮𝐥 𝐈𝐜𝐨𝐧𝐬 Icons: Quickly understand weather conditions with clear icons.
+-𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐢𝐯𝐞 𝐃𝐞𝐬𝐢𝐠𝐧: Easily view weather information on different devices<br>
+# Screenshots
+<img src="https://github.com/user-attachments/assets/cc83cc25-9547-42b4-8b53-66426e96d0fc"/>
 
-## Available Scripts
+## Preview the Web App : 
 
-In the project directory, you can run:
+### [Live Demo](https://meteo-plages.fr/meteo-plages-temp/) 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Setup 
+## Clone
+```
+git clone https://github.com/faridmth/france-beach-weather.git
+```
+## Install dependencies
+```
+npm i
+```
+## Start the app
+```
+npm start
+```
+After starting the app visit : http://localhost:3000/
+## Build the app
+```
+npm run build
+```
+## Api Used in This Project :
+[My Custom API (fr-plages-uvi-api)](https://github.com/faridmth/fr-plages-uvi-api) for UV info
+[MeteoCity API](https://www.meteocity.com/map/data/8?version=4&state=now) for air temperature , water Temperature , wind speed and direction
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Libraries Used in This Project :
+[React-leaflet](https://react-leaflet.js.org/) for the interactive map
 
-### `npm run build`
+# Contact Info : 
+[Linkedin](https://www.linkedin.com/in/farid-methia/) || [Twitter](https://twitter.com/farid_mth)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
