@@ -13,7 +13,7 @@
 
 ## Preview the Web App : 
 
-### [Live Demo](https://meteo-plages.fr/meteo-plages-temp/) 
+### [Live Demo](https://france-beach-weather.vercel.app/) 
 
 
 
